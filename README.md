@@ -62,3 +62,36 @@ The following calculated attributes were implemented during the preparation phas
 2. **Order Month:** Extracted from `Order Date` as an explicit English text name using the `Date.MonthName([Order Date], "en-US")` function to support global seasonality profiling.
 3. **Profit Margin (Planned for Week 2):** Mathematically defined as `(Profit ÷ Sales) × 100` to evaluate item and category profitability ratios.
 4. **Average Order Value (Planned for Week 2):** Defined as `Total Sales ÷ Distinct Count of Orders` to measure customer transaction sizes.
+
+
+---
+
+## Week 2: Exploratory Data Analysis (EDA) & Business Insights
+
+### 1. Executive Core KPIs Summary
+- **Total Sales:** $2,297,200.86
+- **Total Profit:** $286,397.02
+- **Total Quantity Sold:** 37,873 units
+- **Total Unique Orders:** 5,009 orders
+- **Total Unique Customers:** 793 clients
+- **Overall Business Profit Margin:** 12.47%
+- **Average Order Value (AOV):** $458.61
+
+---
+
+### 2. Deep-Dive Business Insights (Minimum 5 Insights)
+
+#### Insight 1: Strong Q4 Seasonality Trend
+The monthly sales trend chart reveals a consistent, powerful spikes in revenue during the fourth quarter (Q4) of every fiscal year, specifically in **November and December**. This trend is driven by holiday shopping seasons and year-end corporate budget clearouts. Management should optimize inventory levels and increase marketing spend starting in late September to capture this predictable demand.
+
+#### Insight 2: Regional Performance Disparity (West vs. Central)
+The **Western Region** is the absolute company powerhouse, generating the highest sales ($725,457.82), the largest net profit ($108,418.45), and a stellar profit margin of **14.94%**. Conversely, the **Central Region** represents a severe operational bottleneck. While it drives substantial sales volume ($501,239.90), it generates the lowest net profit ($39,706.36) and an underperforming profit margin of only **7.92%**, indicating aggressive discounting or high shipping/logistical costs.
+
+#### Insight 3: High-Risk Underperforming Products (The Cubify Deficit)
+Product-level analysis exposes extreme vulnerability in specific SKUs. The **"Cubify Cube 3D Printer, 2nd Generation"** is the company's single worst-performing asset, responsible for a staggering net loss of nearly **-$9,000**. Selling complex high-tech hardware without proper margin controls or incurring high return rates is heavily damaging overall corporate profitability.
+
+#### Insight 4: Category Profitability Anchor (Technology)
+The category share analysis indicates that **Technology** remains the healthiest driver of corporate value. Backed by high-ticket items like the **"Canon imageCLASS CLASS 2200 Advanced Copier"** (which is the #1 top-earning product bringing over $25,000 in net profit), Technology secures stable profit margins that subsidize weaker organizational divisions.
+
+#### Insight 5: The Furniture Margin Trap
+While the **Furniture** category accounts for a massive slice of the category chart, a secondary filter audit reveals that specific sub-categories, such as **Tables and Bookcases**, operate at a net loss. This indicates a "Margin Trap" where high sales volumes create an illusion of success, but low price points, high bulk shipping rates, and heavy seasonal discounts ultimately destroy net returns.
