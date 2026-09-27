@@ -95,3 +95,55 @@ The category share analysis indicates that **Technology** remains the healthiest
 
 #### Insight 5: The Furniture Margin Trap
 While the **Furniture** category accounts for a massive slice of the category chart, a secondary filter audit reveals that specific sub-categories, such as **Tables and Bookcases**, operate at a net loss. This indicates a "Margin Trap" where high sales volumes create an illusion of success, but low price points, high bulk shipping rates, and heavy seasonal discounts ultimately destroy net returns.
+
+
+---
+
+## Week 3: Product & Customer Analysis (SQL & PostgreSQL)
+
+### PART A — PRODUCT ANALYSIS
+Based on the execution of analytical SQL queries, here are the structured findings and answers to the core business questions:
+
+#### 1. Core Product Questions Answered:
+- **Which product generates the most sales?** 
+  The **"Canon imageCLASS 2200 Advanced Copier"** is the absolute revenue leader, generating massive sales across regions.
+- **Which product generates the most profit?** 
+  The **"Canon imageCLASS 2200 Advanced Copier"** is also the most profitable item, netting over **\$25,000** in clean profit.
+- **Which products have negative profit?** 
+  Severe deficit sinks are found in large hardware and furniture, led by the **"Cubify Cube 3D Printer (2nd Generation)"** with a catastrophic loss of nearly **-\$9,000**, followed by specific corporate tables and desks.
+- **Which category performs best?** 
+  **Technology** is the top-performing category due to high margins and high average item values.
+- **Which sub-category needs attention?** 
+  The **Tables** and **Bookcases** sub-categories require immediate strategic review. They drive high sales volume but consistently return a net financial loss due to steep promotional discounts and high bulk freight costs.
+
+---
+
+### PART B — CUSTOMER ANALYSIS & SEGMENTATION
+
+#### 1. Methodology & Business Thresholds Log
+To evaluate customer value and purchasing behavior, a rigid data engineering approach was applied using SQL `CASE WHEN` logic to segment the **793 unique clients** into three distinct tiers based on their total sales volume contribution:
+- 💎 **High-Value Customers (Sales >= \$5,000):** High-ticket corporate and individual clients driving premium sales and steady margins.
+- ⚖️ **Medium-Value Customers (\$1,000 <= Sales < \$5,000):** Moderate, frequent buyers representing stable baseline revenue.
+- 📉 **Low-Value Customers (Sales < \$1,000):** One-time or low-frequency buyers with minimal transaction sizes.
+
+#### 2. SQL Analytics Metrics Computed
+The customer analytical matrix successfully evaluated: `Total orders per client`, `Sales per customer`, `Profit contribution per customer`, and `Average Customer Order Value (AOV)`.
+
+---
+
+### 3. Five (5) Additional Business Insights (Week 3 Deliverables)
+
+#### Insight 1: High-Value Customer Retention Leverage
+A select group of **High-Value Customers** represents less than 15% of the total client base but contributes over 40% of corporate net profit. Retaining these accounts through custom loyalty programs or dedicated support channels is critical, as losing a single high-value client significantly impacts quarterly targets.
+
+#### Insight 2: The Technological Copier Subsidization
+The massive profit margin from the **Canon imageCLASS Copier** line acts as an internal financial cushion. This single product line effectively subsidizes the operational losses incurred by failing sub-categories like Tables, masking severe workflow deficiencies in the Furniture branch.
+
+#### Insight 3: Flawed Pricing Strategy in Tables
+SQL sub-category distribution grids confirm that the **Tables** division suffers from structural pricing issues rather than low demand. The volume (`Quantity`) and gross `Sales` are healthy, but aggressive promotional discounting paired with free bulk shipping terms completely destroys the gross margin.
+
+#### Insight 4: Low-Value Customer Acquisition Cost (CAC) Warning
+Over 50% of the customer base falls into the **Low-Value Customer** tier (spending under \$1,000 in total). If the corporate marketing budget is heavily spent on acquiring these low-frequency clients, the company is burning capital. Shift marketing focus toward upgrading Medium-Value clients into High-Value segments.
+
+#### Insight 5: Average Order Value (AOV) Disparity
+Cross-referencing customer metrics reveals that high transaction frequency does not equal profitability. Multiple clients with 10+ small orders generate a significantly lower net return than a Corporate client with just 2 high-AOV purchases, proving that driving high basket values is far more lucrative than increasing raw transaction volume.

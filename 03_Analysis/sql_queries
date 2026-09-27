@@ -1,0 +1,77 @@
+
+CREATE TABLE IF NOT EXISTS superstore_week3 (
+    row_id INT PRIMARY KEY,
+    order_id VARCHAR(50),
+    order_date DATE,
+    ship_date DATE,
+    ship_mode VARCHAR(50),
+    customer_id VARCHAR(50),
+    customer_name VARCHAR(150),
+    segment VARCHAR(50),
+    country VARCHAR(100),
+    city VARCHAR(100),
+    state VARCHAR(100),
+    postal_code VARCHAR(50),
+    region VARCHAR(50),
+    product_id VARCHAR(50),
+    category VARCHAR(50),
+    sub_category VARCHAR(50),
+    product_name VARCHAR(255),
+    sales VARCHAR(50),       
+    quantity INT,
+    discount VARCHAR(50),    
+    profit VARCHAR(50),      
+    order_year INT,
+    order_month VARCHAR(50)
+);
+
+ALTER TABLE superstore_week3 
+    ALTER COLUMN sales TYPE NUMERIC USING CAST(REPLACE(sales, ',', '.') AS NUMERIC),
+    ALTER COLUMN discount TYPE NUMERIC USING CAST(REPLACE(discount, ',', '.') AS NUMERIC),
+    ALTER COLUMN profit TYPE NUMERIC USING CAST(REPLACE(profit, ',', '.') AS NUMERIC);
+
+
+SELECT * FROM superstore_week3 LIMIT 10;
+
+SELECT count(*) FROM superstore_week3;
+
+
+
+SELECT product_name, ROUND(SUM(sales), 2) as total_sales
+FROM superstore_week3
+GROUP BY product_name
+ORDER BY total_sales DESC
+LIMIT 10;
+
+SELECT product_name, ROUND(SUM(profit), 2) as total_profit
+FROM superstore_week3
+GROUP BY product_name
+ORDER BY total_profit DESC
+LIMIT 10;
+
+
+SELECT category, sub_category, 
+       ROUND(SUM(sales), 2) as total_sales, 
+       ROUND(SUM(profit), 2) as total_profit, 
+       SUM(quantity) as total_quantity
+FROM superstore_week3
+GROUP BY category, sub_category
+ORDER BY total_profit DESC;
+
+
+SELECT 
+    customer_id,
+    customer_name,
+    COUNT(DISTINCT order_id) as total_orders,
+    ROUND(SUM(sales), 2) as total_sales,
+    ROUND(SUM(profit), 2) as total_profit,
+    ROUND(SUM(sales) / COUNT(DISTINCT order_id), 2) as avg_customer_order_value,
+    CASE 
+        WHEN SUM(sales) >= 5000 THEN 'High-Value Customer'
+        WHEN SUM(sales) >= 1000 AND SUM(sales) < 5000 THEN 'Medium-Value Customer'
+        ELSE 'Low-Value Customer'
+    END as customer_segment
+FROM superstore_week3
+GROUP BY customer_id, customer_name
+ORDER BY total_sales DESC;
+
