@@ -147,3 +147,45 @@ Over 50% of the customer base falls into the **Low-Value Customer** tier (spendi
 
 #### Insight 5: Average Order Value (AOV) Disparity
 Cross-referencing customer metrics reveals that high transaction frequency does not equal profitability. Multiple clients with 10+ small orders generate a significantly lower net return than a Corporate client with just 2 high-AOV purchases, proving that driving high basket values is far more lucrative than increasing raw transaction volume.
+
+
+---
+
+## 📊 Week 4: Data Visualization & Dashboard Development (Power BI)
+
+### 1. Dashboard Architecture & Design Philosophy
+An interactive, multi-page business intelligence solution was developed in **Power BI Desktop** using the cleaned corporate dataset connected via PostgreSQL. The dashboard layout applies premium UI/UX design standards: a structured corporate grid layout, neutral canvas backgrounds (`#F3F4F6`), subtle visual boundaries with rounded card containers (`10px`), and a consistent data storytelling color palette.
+
+The analytical application is systematically segmented into **three specialized reporting pages**:
+1. **Executive Overview** — Synthesizes high-level corporate KPIs and comparative performance vectors for the C-suite.
+2. **Product Performance** — Isolates high-earning assets from margin-depleting SKUs to optimize inventory health.
+3. **Customer & Discount Analysis** — Evaluates customer transactional metrics and tests the financial elasticity of promotional strategies.
+
+---
+
+### 2. Comprehensive Page Breakdown & Metrics
+
+#### Page 1: Executive Overview
+- **Core KPI Cards Built:** Total Sales (**\$2.30M**), Net Corporate Profit (**\$286.4K**), and Total Shipped Volume (**38K units**).
+- **Sales & Profit Trend (Line Chart):** Illustrates tight macro-correlation between gross revenue and net profit across fiscal quarters, explicitly charting robust, predictable retail spikes in late Q3 and throughout Q4.
+- **Interactive Matrix Controls:** Embedded native multi-button responsive slicers for `Region` and `Segment` to enable dynamic cross-filtering.
+
+#### Page 2: Product Performance
+- **Volume Distribution (Donut Chart):** Tracks gross sales shares by primary categories, confirming **Technology** as the revenue engine (\$836K), while Office Supplies and Furniture scale closely at \$742K and \$719K respectively.
+- **Top 10 Most Profitable Products (Horizontal Bar Chart):** Isolates premium drivers, led by the **"Canon imageCLASS 2200 Advanced Copier"** generating over **\$25,000** in clean net profit.
+- **Bottom 10 Underperforming Products (Horizontal Bar Chart):** Flags margin deficits, highlighting the **"Cubify CubeX 3D Printer Double Head"** as the heaviest company loss-maker, leaking **-\$8,900** in net capital.
+
+#### Page 3: Customer & Discount Analysis
+- **Advanced Margin Elasticity Analysis (Clustered Column Chart):** Replaced raw profit with a custom DAX measure `Discount Profit Margin = DIVIDE(SUM(profit), SUM(sales), 0)`. The visualization reveals a catastrophic margin collapse; at an **80% discount level (`0.8`)**, profitability hits a devastating floor of nearly **-150%**, proving that extreme discounting models are actively burning cash.
+- **Category Discount Baseline (Horizontal Bar Chart):** Displays the average discount distribution using the audited `AVERAGE(discount)` metric, highlighting **Furniture** as the most promotional and high-risk product category.
+- **Customer Evaluation Matrix (Table Element):** Organizes the full client ledger by total sales, automatically establishing high-value, medium-value, and low-value boundaries based on transaction volumes.
+
+---
+
+### 💡 Key Strategic Business Insights (Week 4 Deliverables)
+
+1. **The Promotional Margin Trap:** The advanced DAX margin chart proves that aggressive promotions completely backfire. While a 10%–20% discount structure maintains a healthy net return, moving past a 50% discount threshold triggers exponential financial decay, culminating in a -150% return rate at 80% off.
+2. **Furniture Category Distress:** Cross-referencing average category discounts with product losses flags **Furniture** as an operational emergency. This division heavily relies on deep discounts to drive volume, which ultimately eradicates profits due to high heavy-freight shipping costs.
+3. **Hardware SKU Vulnerability:** General profitability is heavily exposed to single-product volatility. High net earnings from premium Copiers are internally masking massive procurement and return deficits inside the 3D Printing category.
+4. **Corporate Account Concentration:** The Customer Matrix confirms that a small, elite cohort of high-AOV (Average Order Value) corporate clients drives the vast majority of company profits, making dedicated account retention programs a top business priority.
+5. **Q4 Supply Chain Optimization:** Clear seasonal trendlines indicate a massive demand influx every November and December. Inventory buffers and logistical capacity must be aggressively scaled in Q3 to maximize margins during these high-volume windows.
